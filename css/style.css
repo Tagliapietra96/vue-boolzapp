@@ -80,6 +80,10 @@ img{
     justify-content: space-between;
 }
 
+.word-wrap{
+    word-wrap: break-word;
+}
+
 .message .xxs {
     line-height: 0;
 }

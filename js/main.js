@@ -5,6 +5,7 @@ createApp({
         return {
             //STRINGHE
             search: '',
+            typing: '',
             //NUMERI
             selectedUser: -1,
             //BOOLEANI
@@ -116,7 +117,7 @@ createApp({
         },
         dateGenerator(){
             let now = new Date();
-            return date = `${now.getDate()}/${now.getMonth()}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
+            return date = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth()).padStart(2, '0')}/${String(now.getFullYear()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`
         },
         capitalize(string){
             let lowString = string.toLowerCase();
@@ -150,6 +151,18 @@ createApp({
             };
 
             this.search = '';
+        },
+        sendMessage(){
+            if(this.typing !== ''){
+                this.usersList[this.selectedUser].messages.push({
+                    date: `${this.dateGenerator()}`,
+                    message: this.typing,
+                    status: 'sent'
+                });
+                this.typing = '';
+            } else{
+                return
+            }
         },
     },
     mounted() {

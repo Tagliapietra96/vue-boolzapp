@@ -124,7 +124,7 @@
                         <div class="flex-fill overflow-auto message-area p-5">
                             <div v-for="element in usersList[selectedUser].messages" class="py-1 d-flex flex-column">
                                 <div class="message" :class="element.status">
-                                    <span>{{element.message}}</span>
+                                    <div class="word-wrap overflow-auto">{{element.message}}</div>
                                     <div class="xxs text-secondary align-self-end">{{ takeTime(element.date) }}</div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                             <div class="tool-bar opacity-75">
                                 <button class="btn text-secondary px-4"><i
                                         class="fa-regular fa-face-smile"></i></button>
-                                <input type="text" class="form-control-lg form-control"
+                                <input v-model="typing" @keyup.enter="sendMessage" type="text" class="form-control-lg form-control"
                                     placeholder="Scrivi un messaggio">
                                 <button class="btn text-secondary px-4"><i class="fa-solid fa-microphone"></i></button>
                             </div>

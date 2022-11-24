@@ -4,9 +4,9 @@ createApp({
     data() {
         return {
             //STRINGHE
-
+            search: '',
             //NUMERI
-
+            selectedUser: -1,
             //BOOLEANI
 
             //ARRAY
@@ -102,6 +102,54 @@ createApp({
             let toReturn = [];
             toReturn.push(hoursAndMinutes[0], hoursAndMinutes[1]);
             return toReturn.join(':')
+        },
+        randomNum(min, max) {
+            if (min === undefined && max === undefined) {
+                min = 0;
+                max = 1;
+            };
+            if (min < max){
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }else{
+                return Math.floor(Math.random() * (min - max + 1)) + max;
+            };
+        },
+        dateGenerator(){
+            let now = new Date();
+            return date = `${now.getDate()}/${now.getMonth()}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
+        },
+        capitalize(string){
+            let lowString = string.toLowerCase();
+            let end = lowString.charAt(0).toUpperCase() + lowString.slice(1);
+            return end;
+        },
+        searchUser(){
+            let match = [];
+            this.usersList.forEach(element => {
+                if(element.name.toLowerCase() === this.search.toLowerCase() || this.search === ''){
+                    element.visible = true;
+                    match.push(element);
+                }else {
+                    element.visible = false;
+                };
+            });
+            
+            if (match.length === 0){
+                this.usersList.push({
+                    name: this.capitalize(this.search),
+                    avatar: `_${this.randomNum(1, 4)}`,
+                    visible: true,
+                    messages:[
+                        {
+                            date: `${this.dateGenerator()}`,
+                            message: 'Ciao, mi fischiano le orecchie, mi stavi pensando?',
+                            status: 'received'
+                        }
+                    ]
+                })
+            };
+
+            this.search = '';
         },
     },
     mounted() {

@@ -83,3 +83,7 @@ img{
 .message .xxs {
     line-height: 0;
 }
+
+.single-user.active{
+    background-color: #e6e4e2;
+}

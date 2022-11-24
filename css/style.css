@@ -1,3 +1,4 @@
+
 body {
   background-color: #dadbd2;
   height: 100vh;
@@ -10,7 +11,7 @@ main{
 }
 
 img{
-    height: 50px;
+    height: 40px;
     aspect-ratio: 1/1;
     display: block;
     border-radius: 50%;
@@ -45,4 +46,40 @@ img{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.message-container{
+    background-color: #e4dcd4;
+}
+
+.message-container .tool-bar p{
+    line-height: .7rem;
+    padding-top: 3px;
+}
+
+.message-area{
+    background-image: url('../img/mine.jpg');
+}
+
+.sent{
+    background-color: #d5f9ba;
+    align-self: flex-end;
+}
+
+.received{
+    background-color: white;
+    align-self: flex-start;
+}
+
+.message{
+    max-width: 49%;
+    min-width: 40%;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.message .xxs {
+    line-height: 0;
 }

@@ -39,9 +39,10 @@
                                 </div>
                                 <!-- container pulsanti -->
                                 <div>
-                                    <div class="btn text-secondary"><i class="fa-solid fa-circle-notch"></i></div>
-                                    <div class="btn text-secondary"><i class="fa-solid fa-message"></i></div>
-                                    <div class="btn text-secondary"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                                    <button class="btn text-secondary"><i class="fa-solid fa-circle-notch"></i></button>
+                                    <button class="btn text-secondary"><i class="fa-solid fa-message"></i></button>
+                                    <button class="btn text-secondary"><i
+                                            class="fa-solid fa-ellipsis-vertical"></i></button>
                                 </div>
                             </div>
 
@@ -60,7 +61,7 @@
                             <!-- toolbar search -->
                             <div class="tool-bar">
 
-                                <form class="input-group">
+                                <form class="input-group opacity-75">
                                     <button class="btn btn-outline-secondary  bg-white"><i
                                             class="fa-solid fa-magnifying-glass"></i></button>
                                     <input type="text" class="form-control" placeholder="Cerca o inizia un anuova chat">
@@ -85,10 +86,55 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- message container -->
-                <div class="col-8 h-100 bg-primary ">
+                <div class="col-8 h-100 message-container border-start">
                     <div class="d-flex flex-column h-100">
-                        
+                        <div class="padding-fix">
+
+                            <!-- toolbar utente -->
+                            <div class="tool-bar">
+
+                                <!-- container dati -->
+                                <div class="d-flex align-items-center">
+                                    <img src="img/avatar_1.jpg">
+                                    <div class=" ms-3">
+                                        <p class="m-0">Michele</p>
+                                        <small class="text-secondary xxs">Ultimo accesso oggi alle 12:00</small>
+                                    </div>
+                                </div>
+                                <!-- container pulsanti -->
+                                <div>
+                                    <button class="btn text-secondary"><i
+                                            class="fa-solid fa-magnifying-glass"></i></button>
+                                    <button class="btn text-secondary"><i class="fa-solid fa-paperclip"></i></button>
+                                    <button class="btn text-secondary"><i
+                                            class="fa-solid fa-ellipsis-vertical"></i></button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- area dei messaggi -->
+                        <div class="flex-fill overflow-auto message-area p-5">
+                            <div v-for="element in usersList[0].messages" class="py-1 d-flex flex-column">
+                                <div class="message" :class="element.status">
+                                    <span>{{element.message}}</span>
+                                    <div class="xxs text-secondary align-self-end">12:00</div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="padding-fix">
+                            <!-- toolbar messaggi -->
+                            <div class="tool-bar opacity-75">
+                                <button class="btn text-secondary px-4"><i class="fa-regular fa-face-smile"></i></button>
+                                <input type="text" class="form-control-lg form-control" placeholder="Scrivi un messaggio">
+                                <button class="btn text-secondary px-4"><i class="fa-solid fa-microphone"></i></button>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 

@@ -80,7 +80,7 @@
                                         <small class="text-secondary">Ultimo messaggio inviato</small>
                                     </div>
                                 </div>
-                                <div class="xxs text-secondary">12:00</div>
+                                <div class="xxs text-secondary">{{takeTime(user.messages[user.messages.length -1].date)}}</div>
                             </div>
 
                         </div>
@@ -97,10 +97,10 @@
 
                                 <!-- container dati -->
                                 <div class="d-flex align-items-center">
-                                    <img src="img/avatar_1.jpg">
+                                    <img :src="'img/avatar' + usersList[0].avatar + '.jpg'">
                                     <div class=" ms-3">
-                                        <p class="m-0">Michele</p>
-                                        <small class="text-secondary xxs">Ultimo accesso oggi alle 12:00</small>
+                                        <p class="m-0">{{usersList[0].name}}</p>
+                                        <small class="text-secondary xxs">Ultimo accesso oggi alle {{takeTime(usersList[0].messages[usersList[0].messages.length -1].date)}}</small>
                                     </div>
                                 </div>
                                 <!-- container pulsanti -->
@@ -120,7 +120,7 @@
                             <div v-for="element in usersList[0].messages" class="py-1 d-flex flex-column">
                                 <div class="message" :class="element.status">
                                     <span>{{element.message}}</span>
-                                    <div class="xxs text-secondary align-self-end">12:00</div>
+                                    <div class="xxs text-secondary align-self-end">{{ takeTime(element.date) }}</div>
                                 </div>
                             </div>
                         </div>

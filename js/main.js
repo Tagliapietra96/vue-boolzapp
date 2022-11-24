@@ -96,9 +96,15 @@ createApp({
     },
     // ************ FUNZIONI ************
     methods: {
-
+        takeTime(string){
+            let elements = string.split(' ');
+            let hoursAndMinutes = elements[1].split(':');
+            let toReturn = [];
+            toReturn.push(hoursAndMinutes[0], hoursAndMinutes[1]);
+            return toReturn.join(':')
+        },
     },
     mounted() {
-
+        
     }
 }).mount('#my-app');

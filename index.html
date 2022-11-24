@@ -19,17 +19,77 @@
 
 <body>
     <div class="background-bar"></div>
-    <div id="my-app" class="h-100">
+    <div id="my-app">
 
-        <main class="container h-100 bg-light">
-            <div class="row h-100">
+        <main class="container bg-light ">
+            <div class="row h-100 ">
                 <!-- sidebar -->
-                <div class="col-4 bg-danger">
+                <div class="col-4 h-100 ">
+                    <div class=" d-flex flex-column h-100 ">
 
+
+                        <div class="padding-fix">
+
+                            <!-- toolbar utente -->
+                            <div class="tool-bar">
+                                <!-- container dati -->
+                                <div class="d-flex align-items-center">
+                                    <img src="img/avatar_io.jpg">
+                                    <h6 class="m-0 ms-3">Sofia</h6>
+                                </div>
+                                <!-- container pulsanti -->
+                                <div>
+                                    <div class="btn text-secondary"><i class="fa-solid fa-circle-notch"></i></div>
+                                    <div class="btn text-secondary"><i class="fa-solid fa-message"></i></div>
+                                    <div class="btn text-secondary"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                                </div>
+                            </div>
+
+                            <!-- alert -->
+                            <div class="bg-info opacity-75 p-3 d-flex align-items-center">
+                                <button class="btn btn-light rounded-circle fs-3 text-info"><i
+                                        class="fa-solid fa-bell-slash"></i></button>
+                                <div class="ms-3">
+                                    <p class="m-0">Ricevi notifiche di nuovi messaggi</p>
+                                    <small>
+                                        <a href="#" class="text-secondary">Attiva notifiche desktop</a>
+                                    </small>
+                                </div>
+                            </div>
+
+                            <!-- toolbar search -->
+                            <div class="tool-bar">
+
+                                <form class="input-group">
+                                    <button class="btn btn-outline-secondary  bg-white"><i
+                                            class="fa-solid fa-magnifying-glass"></i></button>
+                                    <input type="text" class="form-control" placeholder="Cerca o inizia un anuova chat">
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="padding-fix flex-grow-1 overflow-auto utenti ">
+
+                            <div v-for="user in usersList" class="p-3 d-flex border justify-content-between">
+                                <div class="d-flex">
+                                    <img :src="'img/avatar' + user.avatar + '.jpg'">
+                                    <div class="ms-3">
+                                        <p class="m-0">{{user.name}}</p>
+                                        <small class="text-secondary">Ultimo messaggio inviato</small>
+                                    </div>
+                                </div>
+                                <div class="xxs text-secondary">12:00</div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
                 <!-- message container -->
-                <div class="col-8 bg-primary">
-
+                <div class="col-8 h-100 bg-primary ">
+                    <div class="d-flex flex-column h-100">
+                        
+                    </div>
                 </div>
 
             </div>

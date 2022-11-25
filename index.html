@@ -126,10 +126,10 @@
                             <div v-for="(element, i) in usersList[selectedUser].messages" class="py-1 d-flex flex-column">
                                 <div class="message" :class="element.status">
                                     <button @click="selectedMessage = i" class="btn text-secondary px-4 delete-message"><i class="fa-solid fa-chevron-down"></i></button>
-                                    <div v-show="i === selectedMessage" @mouseleave="selectedMessage = -1" class="message-info">
+                                    <div v-show="i === selectedMessage" @mouseleave="selectedMessage = -1" class="message-info shadow">
                                         <div class="info-item position-relative">
                                             Message info
-                                            <div class="my-info">{{element.status + ': ' + element.date}}</div>
+                                            <div class="my-info shadow">{{element.status + ': ' + element.date}}</div>
                                         </div>
                                         <div @click="deleteMessage(i)" class="info-item">Delete message</div>
                                     </div>

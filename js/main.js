@@ -8,6 +8,7 @@ createApp({
             typing: '',
             //NUMERI
             selectedUser: -1,
+            selectedMessage: -1,
             //BOOLEANI
 
             //ARRAY
@@ -181,9 +182,16 @@ createApp({
             } else{
                 return
             }
-
-
         },
+        deleteMessage(i){
+            this.usersList[this.selectedUser].messages.splice(i, 1);
+            this.selectedMessage = -1;
+            if(this.usersList[this.selectedUser].messages.length === 0){
+                this.usersList.splice(this.selectedUser, 1);
+                this.selectedUser = -1;
+            }
+        },
+        
     },
     mounted() {
         

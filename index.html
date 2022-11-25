@@ -70,9 +70,9 @@
                             </div>
                         </div>
 
-                        <div class="padding-fix flex-grow-1 overflow-auto utenti ">
+                        <div v-if="usersList !== []" class="padding-fix flex-grow-1 overflow-auto utenti ">
 
-                            <div v-for="(user, i) in usersList" @click="selectedUser = i"
+                            <div  v-for="(user, i) in usersList" @click="selectedUser = i; selectedMessage = -1;"
                                 :class="{'active' : selectedUser === i, 'd-none' : !user.visible}"
                                 class="p-3 d-flex border justify-content-between single-user">
                                 <div class="d-flex">
@@ -123,8 +123,16 @@
 
                         <!-- area dei messaggi -->
                         <div class="flex-fill overflow-auto message-area p-5">
-                            <div v-for="element in usersList[selectedUser].messages" class="py-1 d-flex flex-column">
+                            <div v-for="(element, i) in usersList[selectedUser].messages" class="py-1 d-flex flex-column">
                                 <div class="message" :class="element.status">
+                                    <button @click="selectedMessage = i" class="btn text-secondary px-4 delete-message"><i class="fa-solid fa-chevron-down"></i></button>
+                                    <div v-show="i === selectedMessage" @mouseleave="selectedMessage = -1" class="message-info">
+                                        <div class="info-item position-relative">
+                                            Message info
+                                            <div class="my-info">{{element.status + ': ' + element.date}}</div>
+                                        </div>
+                                        <div @click="deleteMessage(i)" class="info-item">Delete message</div>
+                                    </div>
                                     <div class="word-wrap overflow-auto">{{element.message}}</div>
                                     <div class="xxs text-secondary align-self-end">{{ takeTime(element.date) }}</div>
                                 </div>

@@ -124,6 +124,16 @@ createApp({
             let end = lowString.charAt(0).toUpperCase() + lowString.slice(1);
             return end;
         },
+        dinamicSearch(){
+            this.usersList.forEach(element => {
+                if(element.name.toLowerCase().includes(this.search.toLowerCase()) || this.search === ''){
+                    element.visible = true;
+                }else {
+                    element.visible = false;
+                };
+            });
+            
+        },
         searchUser(){
             let match = [];
             this.usersList.forEach(element => {

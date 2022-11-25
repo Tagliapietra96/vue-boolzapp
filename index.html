@@ -61,10 +61,10 @@
                             <!-- toolbar search -->
                             <div class="tool-bar">
 
-                                <form @submit.prevent="searchUser" class="input-group opacity-75">
+                                <form @submit.prevent="searchUser"  class="input-group opacity-75">
                                     <button class="btn btn-outline-secondary  bg-white"><i
                                             class="fa-solid fa-magnifying-glass"></i></button>
-                                    <input v-model="search" type="text" class="form-control" placeholder="Cerca o inizia un anuova chat">
+                                    <input @input="dinamicSearch" v-model="search" type="text" class="form-control" placeholder="Cerca o inizia un anuova chat">
                                 </form>
 
                             </div>

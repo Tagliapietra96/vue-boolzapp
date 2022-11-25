@@ -79,7 +79,8 @@
                                     <img :src="'img/avatar' + user.avatar + '.jpg'">
                                     <div class="ms-3">
                                         <p class="m-0">{{user.name}}</p>
-                                        <small class="text-secondary">Ultimo messaggio inviato</small>
+                                        <small class="text-secondary">{{user.messages[user.messages.length
+                                            -1].message}}</small>
                                     </div>
                                 </div>
                                 <div class="xxs text-secondary">{{takeTime(user.messages[user.messages.length

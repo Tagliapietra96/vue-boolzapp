@@ -170,9 +170,19 @@ createApp({
                     status: 'sent'
                 });
                 this.typing = '';
+
+                setTimeout(() => {
+                    this.usersList[this.selectedUser].messages.push({
+                        date: `${this.dateGenerator()}`,
+                        message: 'Ok',
+                        status: 'received'
+                    });
+                }, 1500);
             } else{
                 return
             }
+
+
         },
     },
     mounted() {
